@@ -1,0 +1,41 @@
+.container-margin{
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 48px;
+    margin-bottom: 0px;
+}
+.home {
+    height: 78vh;
+    img{
+        width: 480px;
+        height: 420px;
+    }
+}
+.about {
+    height: 78vh;
+    img{
+        width: 300px;
+        height: 400px;
+    }
+}
+
+
+@media (max-width: 575.98px) {
+    .container-margin {
+        margin: 20px; 
+    }
+    .home {
+        height: 78vh;
+        img{
+            width: 274px;
+            height: 200px;
+        }
+    }
+    .about {
+        height: 118vh;
+        img{
+            width: 274px;
+            height: 200px;
+        }
+    }
+}

@@ -12,6 +12,7 @@ export class ProductsComponent {
   productData: Products[] = [];
   userPhoneNumber: string = '';
   modalRef?: BsModalRef| null;
+
   constructor(private adminService: AdminServiceService,private modalService: BsModalService,public bsModalRef: BsModalRef){
     this.adminService.getProductData().subscribe(res=>{
       this.productData = res.map((element: any) => {
@@ -23,17 +24,9 @@ export class ProductsComponent {
   }
 
   openModal(whatsappModal:any) {
-    let initialState:ModalOptions = {
-      initialState: {
-        title: 'Product',
-        button: '+ Add',
-        closeButton: 'Cancel'
-      }
-    }
-    this.modalService.show(whatsappModal, initialState);
+    this.modalService.show(whatsappModal);
   }
   redirectToWhatsApp() {
-    console.log(this.userPhoneNumber)
     if (this.userPhoneNumber.trim() !== '') {
       const message = 'Hello! I would like to chat with you.'; // Optional predefined message
       const url = `https://wa.me/${this.userPhoneNumber}?text=${encodeURIComponent(message)}`;
@@ -47,7 +40,6 @@ export class ProductsComponent {
     if (!this.modalRef) {
       return;
     }
- 
     this.modalRef.hide();
     this.modalRef = null;
   }
